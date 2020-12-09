@@ -371,7 +371,7 @@ Geometric Flow, Mean Curvature, Advection
 This article is concerned with developing a closed-form solution to advection and mean curvature flow of a sphere.
 While not a particularly insightful model, it provides a method of validating numerical solvers for advection and mean curvature flow and developing inverse methods for identifying parameters from such flows.
 This particular flow is of interest as a model for microarchitecture changes in bone  during aging~\cite{besler2018bone}.
-The contents of this articles are largely pedagogical.
+The contents of this article are largely pedagogical.
 
 \section{Advection and Mean Curvature Flow}
 Consider an orientable, closed two dimensional surface immersed in three dimensions $M \colon \!R^2 \rightarrow \!R^3$ with mean curvature $\kappa$ and unit normal $\hat{n}$.
@@ -388,17 +388,17 @@ Such a flow is equivalent to flow under prescribed mean curvature with an additi
 where $\tilde{\kappa} = a/b$ is the prescribed mean curvature.
 The study of this flow originates from the geometric similarities between triply period minimal surfaces~\cite{schoen1970infinite,anderson1987periodic,chopp1993flow} and bone microarchitecture.
 It should be noted that $\tilde{\kappa}$ is not the total mean curvature and that this is not a volume preserving flow.
+The flow permits the development of singularities, producing a change in topology.
 
 In general, $a$ can be any real number while $b$ should be greater than or equal to zero.
 A negative value for $b$ would imply inverse mean curvature flow which is unstable when points on the manifold have zero mean curvature.
-One can see that the flow stops when $\kappa = \tilde{\kappa} = a/b$ everywhere.
-The flow permits the development of singularities, producing a change in topology.
+One can see that the flow stops when $\kappa = \tilde{\kappa} = a/b$ everywhere on the surface.
 
 \section{The Sphere}
 This paper is concerned with a closed form solution to a sphere moving under advection and mean curvature.
 All work will be done on the two-sphere $S_2$.
 
-Consider the two-sphere mapping to spherical coordinates $S_2 \colon (u,v) \rightarrow (\rho, \theta, \phi)$ with radius $r_0$.
+Consider the two-sphere mapping to spherical coordinates $M \colon (u,v) \rightarrow (\rho, \theta, \phi)$ with radius $r_0$.
 \begin{align}
   \label{eqn:sphere:mapping}
   \begin{pmatrix}
@@ -417,6 +417,7 @@ The normal is along the radial direction.
   \label{eqn:sphere:normal}
   \hat{n}(u,v) = 1\hat{\rho} + 0 \hat{u} + 0 \hat{v}
 \end{equation}
+Since the surface normal is aligned with the $\hat{\rho}$ direction due to spherical symmetry, all curve evolution problems will reduce to a differential equation on the radius.
 The mean curvature at every point is the inverse of radius.
 \begin{equation}
   \label{eqn:sphere:curvature}
@@ -475,7 +476,7 @@ The solution is plotted for various values of $a$ in Figure~\ref{fig:advection}.
 
 \section{Sphere Under Mean Curvature Flow}
 \label{sec:meanflow}
-Attention is now placed on mean curvature flow.
+Attention is now placed on mean curvature flow ($a = 0$).
 Equation~\ref{eqn:advection-mean} reduces to a simple expression.
 \begin{equation}
   \label{eqn:mean}
@@ -508,6 +509,7 @@ Through some substitution, the problem can be solved:
   \label{eqn:mean:solution}
   \rho(t) = \sqrt{r_0^2 - 2bt}
 \end{equation}
+This solution is a classic pedagogical result in geometric flows~\cite{bellettini2014lecture}.
 
 As with advection, Equation~\ref{eqn:mean:solution} agrees with intuition.
 Since the mean curvature everywhere on a sphere is positive and $b$ is positive, the negative sign in Equation~\ref{eqn:mean} suggests the sphere is always shrinking.
@@ -539,7 +541,7 @@ Analyzing Equation~\ref{eqn:base} can give insight into the model.
 In general, the model stops flowing when $r_t = 0$ which corresponds to $r = b/a$.
 However, this is only the case when $a$ is positive.
 When $a$ is negative, the sphere shrinks forever.
-When $a$ is positive, there exists a point where the shrinking under mean curvature is balanced by the growth from advection corresponding.
+When $a$ is positive, there exists a point where the shrinking under mean curvature is balanced by the growth from advection.
 However, this point is only meta-stable.
 If the initial sphere radius is exactly $r_0 = b/a$, the sphere will be constant over time.
 However, if the radius is slightly increased, the mean curvature term decreases and the sphere grows.
@@ -548,16 +550,16 @@ In summary:
 \begin{itemize}
   \item $a < 0 \rightarrow$ shrink to zero
   \item $0 < a < \frac{b}{r_0} \rightarrow $ shrink to zero
-  \item $ a = \frac{b}{r_0} \rightarrow $ meta stable
+  \item $ a = \frac{b}{r_0} \rightarrow $ meta-stable
   \item $\frac{b}{r_0} < a \rightarrow $ grow to infinity
 \end{itemize}
-In general, away from the meta stable point, when growing, growth is like advection and when shrinking, shrinking is like mean curvature flow.
+In general, away from the meta-stable point, when growing, growth is like advection and when shrinking, shrinking is like mean curvature flow.
 This is demonstrated in a phase diagram in Figure~\ref{fig:loss}.
 
 \begin{figure}[b]
   \centering
     \includegraphics[width=0.9\linewidth]{loss}%
-  \caption{Plotting the meta stable point of the sphere under advection and mean curvature ($a = 1$, $b = 10$).}
+  \caption{Plotting the meta-stable point of the sphere under advection and mean curvature ($a = 1$, $b = 10$).}
   \label{fig:loss}
 \end{figure}
 
@@ -632,7 +634,7 @@ Looking at that argument, the vanishing time is found.
   \label{eqn:vanish1}
   t = \frac{b}{a^2} \ln\left(\frac{b}{b-ar_0}\right) - \frac{r_0}{a}
 \end{eqnarray}
-Equation~\ref{eqn:vanish1} will only be valid when the argument to the natural logarithm is negative.
+Equation~\ref{eqn:vanish1} will only be valid when the argument to the natural logarithm is positive.
 \begin{eqnarray}
   \frac{b}{b-ar_0} > 0 \\
   b - ar_0 > 0 \\
@@ -649,36 +651,37 @@ The equation for vanishing time is then:
     \end{matrix}
   \right.
 \end{equation}
+Taking the limits as $a \rightarrow 0$ or as $b \rightarrow 0$ of Equation~\ref{eqn:vanish}, the advection and mean curvature vanishing times from before can be found.
 
 The closed form solution is rather involved so an implementation is given in the Appendix.
 To finalize the analysis, the solution is plotted in Figure~\ref{fig:solution} for various parameters.
-The solution is only of interest around the meta stable point.
-Outside the meta stable point, one of the two terms is much smaller than the other.
+The solution is only of interest around the meta-stable point.
+Outside the meta-stable point, one of the two terms is much smaller than the other.
 
 \begin{figure}[t]
   \centering
   \begin{tabular}{c}
     \subfloat[$r_0 = 11, a = 1, b = 10$]{
-      \includegraphics[width=0.9\linewidth]{solution_1}%
+      \includegraphics[width=0.85\linewidth]{solution_1}%
       \label{fig:solution:1}
     } \\
     \subfloat[$r_0 = 9, a = 1, b = 10$]{
-      \includegraphics[width=0.9\linewidth]{solution_2}%
+      \includegraphics[width=0.85\linewidth]{solution_2}%
       \label{fig:solution:2}
     } \\
     \subfloat[$r_0 = 10, a = -1, b = 10$]{
-      \includegraphics[width=0.9\linewidth]{solution_3}%
+      \includegraphics[width=0.85\linewidth]{solution_3}%
       \label{fig:solution:3}
     }
   \end{tabular}
-  \caption{Solutions to the advection and mean curvature flow of a sphere. The three conditions correspond to (\ref{fig:solution:1}) growth, (\ref{fig:solution:2}) shrinking, and (\ref{fig:solution:1}) shrinking with negative advection.}
+  \caption{Solutions to the advection and mean curvature flow of a sphere. The three conditions correspond to (\ref{fig:solution:1}) growth, (\ref{fig:solution:2}) shrinking, and (\ref{fig:solution:1}) shrinking with negative advection. The dashed line denotes the meta-stable point.}
   \label{fig:solution}
 \end{figure}
 
 \section{Conclusion}
 A closed form solution for the motion of a sphere under advection and mean curvature flow is developed.
 Vanishing times for the sphere are also calculated.
-While this model is not particularly insightful, it does provide a closed form solution for testing numerical solvers of advection and mean curvature flow and inverse problems therein.
+This model provides a closed form solution for testing numerical solvers of advection and mean curvature flow and inverse problems therein.
 
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
@@ -705,7 +708,7 @@ While this model is not particularly insightful, it does provide a closed form s
 
 \appendix[Source Code]
 \label{app:python}
-Source code is provided in Python since the implementation is not obvious.
+Source code is provided in Python for ease of implementation.
 
 \lstdefinestyle{CustomStyle}{
   language=Python,
@@ -714,7 +717,8 @@ Source code is provided in Python since the implementation is not obvious.
   numbersep=10pt,
   tabsize=4,
   showspaces=false,
-  showstringspaces=false
+  showstringspaces=false,
+  breaklines=true
 }
 \lstset{basicstyle=\tiny,style=CustomStyle}
 \lstinputlisting{./Figures/model.py}

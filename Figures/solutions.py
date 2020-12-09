@@ -23,6 +23,8 @@ plt.figure()
 plt.plot(t, r, 'k')
 plt.ylabel('Radius')
 plt.xlabel('Time')
+plt.ylim(0, 13.)
+plt.hlines([b/a], 0, 10, colors='0.6', linestyles='dashed')
 plt.savefig(
     'solution_1.pdf',
     bbox_inches='tight',
@@ -41,6 +43,8 @@ plt.figure()
 plt.plot(t, r, 'k')
 plt.ylabel('Radius')
 plt.xlabel('Time')
+plt.ylim(0, 13.)
+plt.hlines([b/a], 0, 10, colors='0.6', linestyles='dashed')
 plt.savefig(
     'solution_2.pdf',
     bbox_inches='tight',
@@ -59,6 +63,7 @@ plt.figure()
 plt.plot(t, r, 'k')
 plt.ylabel('Radius')
 plt.xlabel('Time')
+plt.ylim(0, 13.)
 plt.savefig(
     'solution_3.pdf',
     bbox_inches='tight',
