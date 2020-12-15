@@ -370,7 +370,7 @@ Geometric Flow, Mean Curvature, Advection
 \section{Introduction}
 This article is concerned with developing a closed-form solution to advection and mean curvature flow of a sphere.
 This simple model provides a method of validating numerical solvers for advection and mean curvature flow and developing inverse methods for identifying parameters from such flows.
-This particular flow is of interest as a model for bone microarchitecture changes in during aging~\cite{besler2018bone}.
+This particular flow is of interest as a model for bone microarchitecture changes during aging~\cite{besler2018bone}.
 The contents of this article are largely pedagogical.
 
 \section{Advection and Mean Curvature Flow}
@@ -386,7 +386,7 @@ Such a flow is equivalent to flow under prescribed mean curvature with an additi
   \frac{\partial M}{\partial t} = b(\tilde{\kappa} - \kappa) \hat{n}
 \end{equation}
 where $\tilde{\kappa} = a/b$ is the prescribed mean curvature.
-The study of this flow originates from the geometric similarities between triply period minimal surfaces~\cite{schoen1970infinite,anderson1987periodic,chopp1993flow} and bone microarchitecture.
+The study of this flow originates from the geometric similarities between triply period minimal surfaces~\cite{schoen1970infinite,anderson1987periodic,chopp1993flow} and bone microarchitecture~\cite{hildebrand1999direct}.
 It should be noted that $\tilde{\kappa}$ is not the total mean curvature and that this is not a volume preserving flow.
 The flow permits the development of singularities, producing a change in topology.
 
@@ -417,7 +417,7 @@ The normal is along the radial direction.
   \label{eqn:sphere:normal}
   \hat{n}(u,v) = 1\hat{\rho} + 0 \hat{u} + 0 \hat{v}
 \end{equation}
-Since the surface normal is aligned with the $\hat{\rho}$ direction due to spherical symmetry, all curve evolution problems will reduce to a differential equation on the radius.
+Since the surface normal is aligned with the $\hat{\rho}$ direction, all curve evolution problems will reduce to a differential equation on the radius by spherical symmetry.
 The mean curvature at every point is the inverse of radius.
 \begin{equation}
   \label{eqn:sphere:curvature}
@@ -509,7 +509,7 @@ Through some substitution, the problem can be solved:
   \label{eqn:mean:solution}
   \rho(t) = \sqrt{r_0^2 - 2bt}
 \end{equation}
-This solution is a classic pedagogical result in geometric flows~\cite{bellettini2014lecture}.
+This solution is a classic pedagogical result in mean curvature flow~\cite{bellettini2014lecture}.
 
 As with advection, Equation~\ref{eqn:mean:solution} agrees with intuition.
 Since the mean curvature everywhere on a sphere is positive and $b$ is positive, the negative sign in Equation~\ref{eqn:mean} suggests the sphere is always shrinking.
@@ -586,7 +586,7 @@ The final step is to solve for $r$.
   \label{eqn:near-solved}
   \exp\left( \frac{ar-b}{b}\right) \frac{ar-b}{b} = \frac{1}{b}\exp\left(\frac{a^2}{b}(t+c)\right)
 \end{eqnarray}
-While this appears unsolvable, the left hand side of Equation~\ref{eqn:near-solved} is known as the "product log" or Lambert W function~\cite{lambert1758observationes,weisstein2002lambert}.
+While this appears unsolvable, the left hand side of Equation~\ref{eqn:near-solved} is known as the ``product log" or Lambert W function~\cite{lambert1758observationes,weisstein2002lambert}.
 \begin{eqnarray}
   xe^x &=& z \\
   x &=& W_k(z)
