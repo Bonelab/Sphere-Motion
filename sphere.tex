@@ -358,7 +358,7 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-A closed form solution for advection and mean curvature flow of a sphere is derived.
+A closed-form solution for advection and mean curvature flow of a sphere is derived.
 This model is of interest for validating numerical methods of simulating the flow and developing inverse solvers for such a flow.
 \end{abstract}
 
@@ -369,8 +369,8 @@ Geometric Flow, Mean Curvature, Advection
 
 \section{Introduction}
 This article is concerned with developing a closed-form solution to advection and mean curvature flow of a sphere.
-While not a particularly insightful model, it provides a method of validating numerical solvers for advection and mean curvature flow and developing inverse methods for identifying parameters from such flows.
-This particular flow is of interest as a model for microarchitecture changes in bone  during aging~\cite{besler2018bone}.
+This simple model provides a method of validating numerical solvers for advection and mean curvature flow and developing inverse methods for identifying parameters from such flows.
+This particular flow is of interest as a model for bone microarchitecture changes in during aging~\cite{besler2018bone}.
 The contents of this article are largely pedagogical.
 
 \section{Advection and Mean Curvature Flow}
@@ -390,12 +390,12 @@ The study of this flow originates from the geometric similarities between triply
 It should be noted that $\tilde{\kappa}$ is not the total mean curvature and that this is not a volume preserving flow.
 The flow permits the development of singularities, producing a change in topology.
 
-In general, $a$ can be any real number while $b$ should be greater than or equal to zero.
-A negative value for $b$ would imply inverse mean curvature flow which is unstable when points on the manifold have zero mean curvature.
+In general, $a$ can be any real number while $b$ should be a real number greater than or equal to zero.
+A negative value for $b$ would imply inverse mean curvature flow, which is unstable when points on the manifold have zero mean curvature.
 One can see that the flow stops when $\kappa = \tilde{\kappa} = a/b$ everywhere on the surface.
 
 \section{The Sphere}
-This paper is concerned with a closed form solution to a sphere moving under advection and mean curvature.
+This paper is concerned with a closed-form solution to a sphere moving under advection and mean curvature.
 All work will be done on the two-sphere $S_2$.
 
 Consider the two-sphere mapping to spherical coordinates $M \colon (u,v) \rightarrow (\rho, \theta, \phi)$ with radius $r_0$.
@@ -423,7 +423,7 @@ The mean curvature at every point is the inverse of radius.
   \label{eqn:sphere:curvature}
   \kappa(u,v) = 1/r
 \end{equation}
-These prerequisites allow the development of a closed form solution for the sphere.
+These prerequisites allow the development of a closed-form solution for the sphere.
 
 \section{Sphere Under Advection}
 \label{sec:advection}
@@ -465,7 +465,7 @@ Equation~\ref{eqn:advection:solution} agrees with intuition.
 The surface is moving at a linear rate of $a$ units of distance per units of time along the normal of the sphere.
 If $a$ is positive, the sphere grows forever.
 If $a$ is negative, it shrinks until it vanishes at the points $t = -r_0/a$.
-The solution is plotted for various values of $a$ in Figure~\ref{fig:advection}.
+The solution is plotted for five values of $a$ in Figure~\ref{fig:advection}.
 
 \begin{figure}[t]
   \centering
@@ -514,7 +514,7 @@ This solution is a classic pedagogical result in geometric flows~\cite{bellettin
 As with advection, Equation~\ref{eqn:mean:solution} agrees with intuition.
 Since the mean curvature everywhere on a sphere is positive and $b$ is positive, the negative sign in Equation~\ref{eqn:mean} suggests the sphere is always shrinking.
 Indeed, the sphere shrinks until it vanishes at $t = r_0^2/2b$.
-The solution is plotted for various values of $b$ in Figure~\ref{fig:mean}.
+The solution is plotted for five values of $b$ in Figure~\ref{fig:mean}.
 
 \begin{figure}[t]
   \centering
@@ -553,7 +553,7 @@ In summary:
   \item $ a = \frac{b}{r_0} \rightarrow $ meta-stable
   \item $\frac{b}{r_0} < a \rightarrow $ grow to infinity
 \end{itemize}
-In general, away from the meta-stable point, when growing, growth is like advection and when shrinking, shrinking is like mean curvature flow.
+In general, away from the meta-stable point, when growing, growth is like advection. When shrinking, shrinking is like mean curvature flow.
 This is demonstrated in a phase diagram in Figure~\ref{fig:loss}.
 
 \begin{figure}[b]
@@ -563,7 +563,7 @@ This is demonstrated in a phase diagram in Figure~\ref{fig:loss}.
   \label{fig:loss}
 \end{figure}
 
-Now, the closed form solution to Equation~\ref{eqn:base} is derived.
+Now, the closed-form solution to Equation~\ref{eqn:base} is derived.
 \begin{eqnarray}
   \frac{dr}{dt} = a - \frac{b}{r} \\
   \frac{r}{ar - b} dr = dt
@@ -626,7 +626,7 @@ As such, use $W_{-1}$ if $a<0$ and use $W_0$ if $a>0$.
 Note that this piecewise function is continuous at $a=0$.
 
 The final step is to derive a vanishing time for the solution.
-Again, the vanishing time is the $t$ when $r(t)=0$ which is when $W_k(z) = -1$.
+Again, the vanishing time is the $t$ when $r(t)=0$, which is when $W_k(z) = -1$.
 This corresponds to when the argument of $W_k$ in Equation~\ref{eqn:soln} is equal to $\frac{-1}{e}$.
 Looking at that argument, the vanishing time is found.
 \begin{eqnarray}
@@ -653,7 +653,7 @@ The equation for vanishing time is then:
 \end{equation}
 Taking the limits as $a \rightarrow 0$ or as $b \rightarrow 0$ of Equation~\ref{eqn:vanish}, the advection and mean curvature vanishing times from before can be found.
 
-The closed form solution is rather involved so an implementation is given in the Appendix.
+An implementation of the closed-form solution is given in the Appendix.
 To finalize the analysis, the solution is plotted in Figure~\ref{fig:solution} for various parameters.
 The solution is only of interest around the meta-stable point.
 Outside the meta-stable point, one of the two terms is much smaller than the other.
@@ -679,9 +679,9 @@ Outside the meta-stable point, one of the two terms is much smaller than the oth
 \end{figure}
 
 \section{Conclusion}
-A closed form solution for the motion of a sphere under advection and mean curvature flow is developed.
+A closed-form solution for the motion of a sphere under advection and mean curvature flow is developed.
 Vanishing times for the sphere are also calculated.
-This model provides a closed form solution for testing numerical solvers of advection and mean curvature flow and inverse problems therein.
+This model provides a closed-form solution for testing numerical solvers of advection and mean curvature flow and inverse problems therein.
 
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
