@@ -358,8 +358,9 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-A closed-form solution for advection and mean curvature flow of a sphere is derived.
-This model is of interest for validating numerical methods of simulating the flow and developing inverse solvers for such a flow.
+Advection and mean curvature flow is used as a model of bone microarchitecture adaptation.
+It is an equivalent geometric flow to prescribed mean curvature flow with an additional rate term.
+In order to validate numerical methods for simulating this flow and developing an inverse solver, a closed-form solution for advection and mean curvature flow of a sphere is derived.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -368,13 +369,12 @@ Geometric Flow, Mean Curvature, Advection
 \end{IEEEkeywords}
 
 \section{Introduction}
-This article is concerned with developing a closed-form solution to advection and mean curvature flow of a sphere.
-This simple model provides a method of validating numerical solvers for advection and mean curvature flow and developing inverse methods for identifying parameters from such flows.
-This particular flow is of interest as a model for bone microarchitecture changes during aging~\cite{besler2018bone}.
+Advection and mean curvature flow has recently been used as a model for predicting bone microarchitecture changes during aging~\cite{besler2018bone}.
+Towards validating numerical solver and inverse problems therein, a closed-form solution to advection and mean curvature flow of a sphere is sought.
 The contents of this article are largely pedagogical.
 
 \section{Advection and Mean Curvature Flow}
-Consider an orientable, closed two dimensional surface immersed in three dimensions $M \colon \!R^2 \rightarrow \!R^3$ with mean curvature $\kappa$ and unit normal $\hat{n}$.
+Consider an orientable, closed two-dimensional surface immersed in three dimensions $M \colon \!R^2 \rightarrow \!R^3$ with mean curvature $\kappa$ and unit normal $\hat{n}$.
 A combination of advection and mean curvature flow is considered where the advection is given by a scalar rate $a$ along the unit normal direction and mean curvature is given by a rate constant $b$.
 \begin{equation}
   \label{eqn:advection-mean}
@@ -388,10 +388,10 @@ Such a flow is equivalent to flow under prescribed mean curvature with an additi
 where $\tilde{\kappa} = a/b$ is the prescribed mean curvature.
 The study of this flow originates from the geometric similarities between triply period minimal surfaces~\cite{schoen1970infinite,anderson1987periodic,chopp1993flow} and bone microarchitecture~\cite{hildebrand1999direct}.
 It should be noted that $\tilde{\kappa}$ is not the total mean curvature and that this is not a volume preserving flow.
-The flow permits the development of singularities, producing a change in topology.
+More precisely, the flow permits the development of singularities, producing a change in topology.
 
 In general, $a$ can be any real number while $b$ should be a real number greater than or equal to zero.
-A negative value for $b$ would imply inverse mean curvature flow, which is unstable when points on the manifold have zero mean curvature.
+A negative value for $b$ would imply inverse mean curvature flow, which is unstable when points on the surface have zero mean curvature.
 One can see that the flow stops when $\kappa = \tilde{\kappa} = a/b$ everywhere on the surface.
 
 \section{The Sphere}
@@ -427,12 +427,12 @@ These prerequisites allow the development of a closed-form solution for the sphe
 
 \section{Sphere Under Advection}
 \label{sec:advection}
-Begin with the problem of advection ($b = 0$).
-Equation~\ref{eqn:advection-mean} reduces to a simple expression.
+Lets begin with the problem of advection ($b = 0$).
+In this case, Equation~\ref{eqn:advection-mean} reduces to a simple expression:
 \begin{equation}
   \frac{\partial M}{\partial t} = a \hat{n}
 \end{equation}
-Substituting Equations~\ref{eqn:sphere:mapping} and \ref{eqn:sphere:normal},
+Substituting Equations~\ref{eqn:sphere:mapping} and \ref{eqn:sphere:normal}:
 \begin{align}
   \begin{pmatrix}
     \rho_t \\
@@ -464,7 +464,7 @@ The solution is immediate:
 Equation~\ref{eqn:advection:solution} agrees with intuition.
 The surface is moving at a linear rate of $a$ units of distance per units of time along the normal of the sphere.
 If $a$ is positive, the sphere grows forever.
-If $a$ is negative, it shrinks until it vanishes at the points $t = -r_0/a$.
+If $a$ is negative, it shrinks until it vanishes at the time $t = -r_0/a$.
 The solution is plotted for five values of $a$ in Figure~\ref{fig:advection}.
 
 \begin{figure}[t]
@@ -477,7 +477,7 @@ The solution is plotted for five values of $a$ in Figure~\ref{fig:advection}.
 \section{Sphere Under Mean Curvature Flow}
 \label{sec:meanflow}
 Attention is now placed on mean curvature flow ($a = 0$).
-Equation~\ref{eqn:advection-mean} reduces to a simple expression.
+In this case, Equation~\ref{eqn:advection-mean} reduces to a simple expression:
 \begin{equation}
   \label{eqn:mean}
   \frac{\partial M}{\partial t} = -b \kappa \hat{n}
@@ -495,7 +495,7 @@ Substituting Equations~\ref{eqn:sphere:mapping}, \ref{eqn:sphere:normal} and \re
     0 \cdot \hat{\phi}
   \end{pmatrix}
 \end{align}
-Again, this gives a single initial value problem:
+Again, this leads to a single initial value problem:
 \begin{equation}
   \left\{
     \begin{array}{ll}
@@ -512,7 +512,7 @@ Through some substitution, the problem can be solved:
 This solution is a classic pedagogical result in mean curvature flow~\cite{bellettini2014lecture}.
 
 As with advection, Equation~\ref{eqn:mean:solution} agrees with intuition.
-Since the mean curvature everywhere on a sphere is positive and $b$ is positive, the negative sign in Equation~\ref{eqn:mean} suggests the sphere is always shrinking.
+Since the mean curvature everywhere on a sphere is positive and $b$ is positive, the negative sign in Equation~\ref{eqn:mean} suggests that the sphere is always shrinking.
 Indeed, the sphere shrinks until it vanishes at $t = r_0^2/2b$.
 The solution is plotted for five values of $b$ in Figure~\ref{fig:mean}.
 
@@ -525,7 +525,7 @@ The solution is plotted for five values of $b$ in Figure~\ref{fig:mean}.
 
 \section{Sphere Under Advection and Mean Curvature Flow}
 Having some background and intuition, the main solution is sought.
-Skipping the middle steps in Sections~\ref{sec:advection} and \ref{sec:meanflow}, the initial value problem can be stated:
+Skipping the middle steps as described in Sections~\ref{sec:advection} and \ref{sec:meanflow}, the initial value problem can be stated.
 \begin{equation}
   \label{eqn:base}
   \left\{
@@ -538,7 +538,7 @@ Skipping the middle steps in Sections~\ref{sec:advection} and \ref{sec:meanflow}
 Notation is changed from $\rho$ to $r$ for ease of interpretation.
 
 Analyzing Equation~\ref{eqn:base} can give insight into the model.
-In general, the model stops flowing when $r_t = 0$ which corresponds to $r = b/a$.
+In general, the model stops flowing when $r_t = 0$, which corresponds to $r = b/a$.
 However, this is only the case when $a$ is positive.
 When $a$ is negative, the sphere shrinks forever.
 When $a$ is positive, there exists a point where the shrinking under mean curvature is balanced by the growth from advection.
@@ -568,16 +568,16 @@ Now, the closed-form solution to Equation~\ref{eqn:base} is derived.
   \frac{dr}{dt} = a - \frac{b}{r} \\
   \frac{r}{ar - b} dr = dt
 \end{eqnarray}
-Using the substitution $x = ar-b$,
+Using the substitution $x = ar-b$ leads to:
 \begin{eqnarray}
   \frac{x+b}{a}\frac{1}{x} \frac{dx}{a} = dt \\
   \left[\frac{1}{a^2} + \frac{b}{ax}\right] dx = dt
 \end{eqnarray}
-Which can be integrated,
+Which can be integrated:
 \begin{equation}
   \frac{ar-b}{a^2} + \frac{b}{a^2}\ln\left(ar-b\right) = t + c
 \end{equation}
-It is convenient to solve for $c$ now with the initial condition $r(0) = r_0$.
+It is convenient to solve for $c$ at this point with the initial condition $r(0) = r_0$.
 \begin{equation}
   c = \frac{ar_0-b}{a^2} + \frac{b}{a^2}\ln\left(ar_0 - b\right)
 \end{equation}
@@ -615,7 +615,7 @@ Using the Lambert W and substituting $c$ allows us to solve for $r$:
 
 Next, the appropriate branch of $W_k$ must be selected since multiple solutions are possible.
 Since this problem deals with real and not complex numbers, only $W_0$ and $W_{-1}$ are available.
-From Figure~\ref{fig:w}, two solutions can be seen for $z < 0$ changing when $x = -1$.
+From Figure~\ref{fig:w}, two solutions can be seen for $z < 0$, the solutions changing when $x = -1$.
 Using Equation~\ref{eqn:x}, the switching condition can be defined.
 \begin{eqnarray}
   \frac{ar-b}{b} < -1 \\
@@ -627,7 +627,7 @@ Note that this piecewise function is continuous at $a=0$.
 
 The final step is to derive a vanishing time for the solution.
 Again, the vanishing time is the $t$ when $r(t)=0$, which is when $W_k(z) = -1$.
-This corresponds to when the argument of $W_k$ in Equation~\ref{eqn:soln} is equal to $\frac{-1}{e}$.
+This corresponds to the situation when the argument of $W_k$ in Equation~\ref{eqn:soln} is equal to $\frac{-1}{e}$.
 Looking at that argument, the vanishing time is found.
 \begin{eqnarray}
   \frac{ar_0-b}{b} \exp\left(\frac{ar_0-b}{b}\right)\exp\left(\frac{a^2t}{b}\right) = \frac{-1}{e} \\
@@ -641,7 +641,7 @@ Equation~\ref{eqn:vanish1} will only be valid when the argument to the natural l
   r_0 < \frac{b}{a}
 \end{eqnarray}
 This is the same condition that was found earlier from analysis of the differential equation.
-The equation for vanishing time is then:
+The equation for vanishing time is then given:
 \begin{equation}
   \label{eqn:vanish}
   t = \left\{
@@ -656,9 +656,10 @@ Taking the limits as $a \rightarrow 0$ or as $b \rightarrow 0$ of Equation~\ref{
 An implementation of the closed-form solution is given in the Appendix.
 To finalize the analysis, the solution is plotted in Figure~\ref{fig:solution} for various parameters.
 The solution is only of interest around the meta-stable point.
-Outside the meta-stable point, one of the two terms is much smaller than the other.
+Outside the meta-stable point, one of the two terms is much smaller than the other, meaning only one term drives the flow.
+This is important to consider for inverse solvers which may not be able to accurately solve for the non-dominant parameter in this simple geometry.
 
-\begin{figure}[t]
+\begin{figure}[h]
   \centering
   \begin{tabular}{c}
     \subfloat[$r_0 = 11, a = 1, b = 10$]{
